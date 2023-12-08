@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import CountUp from "react-countup";
 
 Stats.propTypes = {
   userData: PropTypes.array,
@@ -76,19 +77,29 @@ export default function Stats({ userData }) {
       <div className="stats">
         <div className="stat">
           <p className="stat-label">semaine</p>
-          <p className="stat-number">{totalWeek}</p>
+          <p className="stat-number">
+            <CountUp end={totalWeek} />
+          </p>
         </div>
         <div className="stat">
           <p className="stat-label">mois</p>
-          <p className="stat-number">{totalMonth}</p>
+          <p className="stat-number">
+            {" "}
+            <CountUp end={totalMonth} />
+          </p>
         </div>
         <div className="stat">
           <p className="stat-label">année</p>
-          <p className="stat-number">{totalYear}</p>
+          <p className="stat-number">
+            {" "}
+            <CountUp end={totalYear} />
+          </p>
         </div>
         <div className="stat">
           <p className="stat-label">toujours</p>
-          <p className="stat-number">{totalAlltime}</p>
+          <p className="stat-number">
+            <CountUp end={totalAlltime} />
+          </p>
         </div>
       </div>
     </div>

@@ -11,6 +11,7 @@ export default function App() {
   const [data, setData] = useState(userData);
   const [fireConfetti, setFireConfetti] = useState(false);
   const [count, setCount] = useState(0);
+  const [editMode, setEditMode] = useState(true);
 
   // const findItemBasedOnDate = function (target) {
   //   const currDay = new Date();
@@ -32,16 +33,23 @@ export default function App() {
       <Header>
         <Logo />
       </Header>
-      <Main count={count} setCount={setCount}>
+      <Main
+        count={count}
+        setCount={setCount}
+        data={data}
+        setData={setData}
+        editMode={editMode}
+        setEditMode={setEditMode}
+      >
         <Counter
           count={count}
           setCount={setCount}
-          data={data}
-          setData={setData}
           setFireConfetti={setFireConfetti}
+          editMode={editMode}
+          setEditMode={setEditMode}
         ></Counter>
       </Main>
-      <Stats userData={userData} />
+      <Stats userData={data} />
     </div>
   );
 }

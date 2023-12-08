@@ -32,6 +32,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  // @include m.b;
+  min-width: 60px;
 }
 
 .stat-label {
@@ -41,6 +43,7 @@
 
 .stat-number {
   font-weight: 700;
-  font-size: 1.5em;
+  // font-size: 1.5em;
+  font-size: 3em;
   letter-spacing: 1px;
 }

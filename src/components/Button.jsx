@@ -6,6 +6,7 @@ export default function Button({
   Icon,
   iconSize,
   customStyle,
+  children,
 }) {
   const baseStyle = {
     backgroundColor: "#fff",
@@ -38,6 +39,7 @@ export default function Button({
     <button className="buttons-control" onClick={onClick} style={buttonStyle}>
       {Icon && <Icon style={iconStyle} />}
       {label}
+      {children}
     </button>
   );
 }
@@ -48,4 +50,5 @@ Button.propTypes = {
   Icon: PropTypes.elementType,
   iconSize: PropTypes.string,
   customStyle: PropTypes.object,
+  children: PropTypes.any,
 };

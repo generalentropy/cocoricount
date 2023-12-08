@@ -6,11 +6,33 @@ Main.propTypes = {
   count: PropTypes.number.isRequired,
   setCount: PropTypes.func.isRequired,
   children: PropTypes.element.isRequired,
+  data: PropTypes.array,
+  setData: PropTypes.func,
+  editMode: PropTypes.bool,
+  setEditMode: PropTypes.func,
 };
 
-export default function Main({ count, setCount, children }) {
-  function handleValidation() {
-    // console.log(`total of the day : ${count}`);
+export default function Main({
+  count,
+  setCount,
+  data,
+  setData,
+  children,
+  editMode,
+  setEditMode,
+}) {
+  function updateUserData() {
+    setEditMode(() => !editMode);
+
+    if (!editMode) return;
+    setData([
+      ...data,
+      {
+        id: crypto.randomUUID(),
+        date: 1680031600000,
+        count: count,
+      },
+    ]);
   }
 
   useEffect(() => {
@@ -27,13 +49,16 @@ export default function Main({ count, setCount, children }) {
       <div className="content-name">{`œuf${count > 1 ? "s" : ""}`}</div>
 
       <div className="buttons-wrapper">
-        <Button label={"reset"} onClick={() => setCount(0)} />
+        {editMode && <Button label={"reset"} onClick={() => setCount(0)} />}
         <Button label={"historique"}></Button>
 
         <Button
-          label={"valider"}
-          customStyle={{ backgroundColor: "#219EBC", color: "white" }}
-          onClick={handleValidation}
+          label={editMode ? "valider" : "modifier"}
+          customStyle={{
+            backgroundColor: editMode ? "#10a364" : "#fb8500",
+            color: "white",
+          }}
+          onClick={updateUserData}
         />
       </div>
     </div>
