@@ -1,0 +1,46 @@
+@use "_colors" as c;
+@use "_mixins" as m;
+
+// font-weight 100/300/400/500/700/900
+
+.stats-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 20%;
+  max-height: 300px;
+  min-height: 150px;
+}
+
+.stats-title {
+  text-align: center;
+  font-size: 2.3em;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.stats {
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-label {
+  font-weight: 300;
+  font-size: 0.8em;
+}
+
+.stat-number {
+  font-weight: 700;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+}

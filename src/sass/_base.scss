@@ -1,0 +1,10 @@
+@use "_colors" as c;
+@use "_mixins" as m;
+
+// font-weight 100/300/400/500/700/900
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: c.$main;
+  color: c.$white;
+}

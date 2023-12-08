@@ -1,0 +1,11 @@
+@use "_colors" as c;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin b {
+  border: 1px solid #222222;
+}

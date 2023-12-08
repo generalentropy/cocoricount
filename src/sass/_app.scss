@@ -1,0 +1,82 @@
+@use "_colors" as c;
+@use "_mixins" as m;
+
+// font-weight 100/300/400/500/700/900
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  height: 100dvh;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.counter-wrapper {
+  @include m.flex-center;
+
+  user-select: none; /* Standard syntax */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.today-date {
+  background-color: c.$white;
+  color: c.$main;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: 900;
+  opacity: 0.9;
+}
+
+.info-text {
+  font-size: 1.8em;
+  font-weight: 300;
+  padding: 30px 0 0 0;
+}
+
+.counter {
+  @include m.flex-center;
+  min-width: 320px;
+  justify-content: space-around;
+}
+
+.counter-number {
+  font-size: 6em;
+  font-weight: 900;
+  text-align: center;
+  min-width: 130px;
+}
+
+.btn-counter {
+  @include m.flex-center;
+  background-color: c.$secondary;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-counter:hover {
+  background-color: c.$secondary-darker;
+}
+
+.buttons-wrapper {
+  padding: 30px 0;
+  display: flex;
+  gap: 20px;
+}
+
+.buttons-wrapper img {
+  max-width: 20px;
+}
+
+.content-name {
+  font-size: 2em;
+  font-weight: 500;
+}
