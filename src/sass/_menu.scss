@@ -1,0 +1,37 @@
+@use "_colors" as c;
+@use "_mixins" as m;
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+
+  position: absolute;
+  height: 100vh;
+  height: 100dvh;
+  width: 100vw;
+  width: 100dvw;
+  background-color: c.$main;
+}
+
+.btn-menu {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.btn-close-menu {
+  position: absolute;
+  right: 10px;
+  top: 16px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.menu-container {
+  @include m.flex-center;
+  @include m.b;
+}

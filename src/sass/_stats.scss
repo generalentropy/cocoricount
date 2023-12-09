@@ -33,17 +33,17 @@
   flex-direction: column;
   align-items: center;
   // @include m.b;
-  min-width: 60px;
+  min-width: 88px;
 }
 
 .stat-label {
   font-weight: 300;
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 .stat-number {
   font-weight: 700;
   // font-size: 1.5em;
-  font-size: 3em;
+  font-size: 2.5em;
   letter-spacing: 1px;
 }

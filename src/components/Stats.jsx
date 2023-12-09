@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import CountUp from "react-countup";
+// https://tr8tk.csb.app/
 
 Stats.propTypes = {
   userData: PropTypes.array,
@@ -51,13 +52,15 @@ export default function Stats({ userData }) {
       0
     );
 
-    return {
+    const processedData = {
       totalDay: totalDay,
       totalWeek: totalWeek,
       totalMonth: totalMonth,
       totalYear: totalYear,
       totalAlltime: totalAlltime,
     };
+
+    return processedData;
   };
 
   function getWeekNumber(d) {
@@ -78,27 +81,27 @@ export default function Stats({ userData }) {
         <div className="stat">
           <p className="stat-label">semaine</p>
           <p className="stat-number">
-            <CountUp end={totalWeek} />
+            <CountUp separator="" duration={0.3} end={totalWeek} />
           </p>
         </div>
         <div className="stat">
           <p className="stat-label">mois</p>
           <p className="stat-number">
             {" "}
-            <CountUp end={totalMonth} />
+            <CountUp separator="" duration={0.3} end={totalMonth} />
           </p>
         </div>
         <div className="stat">
           <p className="stat-label">année</p>
           <p className="stat-number">
             {" "}
-            <CountUp end={totalYear} />
+            <CountUp separator="" duration={0.3} end={totalYear} />
           </p>
         </div>
         <div className="stat">
           <p className="stat-label">toujours</p>
           <p className="stat-number">
-            <CountUp end={totalAlltime} />
+            <CountUp separator="" duration={0.3} end={totalAlltime} />
           </p>
         </div>
       </div>
