@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 
-IconClose.propTypes = {
+CloseButton.propTypes = {
   setIsMenuOpen: PropTypes.func,
 };
 
-export default function IconClose({ setIsMenuOpen }) {
+export default function CloseButton({ setIsMenuOpen }) {
   return (
     <div className="btn-close-menu" onClick={() => setIsMenuOpen(false)}>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
