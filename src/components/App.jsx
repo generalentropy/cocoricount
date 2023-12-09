@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "./Header";
 import Logo from "./Logo";
-import Main from "./main";
+import Main from "./Main";
 import Stats from "./Stats";
 import ConfettiComponent from "./Confetti";
 import Counter from "./Counter";

@@ -22,14 +22,30 @@ export default function Main({
   setEditMode,
 }) {
   function updateUserData() {
-    setEditMode(() => !editMode);
+    setEditMode((editMode) => !editMode);
+
+    function createTimestamp() {
+      const now = new Date();
+      // nouvel objet Date pour le début du jour dans le fuseau horaire local
+      const currDay = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate()
+      );
+      // to timestamp
+      return currDay.getTime();
+    }
+
+    const today = createTimestamp();
+
+    const filteredUserData = data.filter((obj) => obj.date !== today);
 
     if (!editMode) return;
+
     setData([
-      ...data,
+      ...filteredUserData,
       {
-        id: crypto.randomUUID(),
-        date: 1680031600000,
+        date: today,
         count: count,
       },
     ]);
