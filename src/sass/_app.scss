@@ -17,11 +17,7 @@
 
 .counter-wrapper {
   @include m.flex-center;
-
-  user-select: none; /* Standard syntax */
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
+  @include m.noselect;
 
   flex-direction: column;
   flex-grow: 1;

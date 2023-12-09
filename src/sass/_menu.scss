@@ -13,6 +13,7 @@
   width: 100vw;
   width: 100dvw;
   background-color: c.$main;
+  @include m.noselect;
 }
 
 .btn-menu {
@@ -28,10 +29,16 @@
   right: 10px;
   top: 16px;
   height: 50px;
+  width: 50px;
   cursor: pointer;
+}
+
+.btn-close-menu svg {
+  height: 20;
 }
 
 .menu-container {
   @include m.flex-center;
   @include m.b;
+  padding: 100px;
 }

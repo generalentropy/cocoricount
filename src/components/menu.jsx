@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import IconClose from "./close";
 
 export default function Menu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,10 +9,7 @@ export default function Menu() {
       <MenuButton setIsMenuOpen={setIsMenuOpen} />
       {isMenuOpen && (
         <ModalMenu isMenuOpen={isMenuOpen}>
-          {/* <CloseModalMenu setIsMenuOpen={setIsMenuOpen} /> */}
-          <div className="btn-close-menu" onClick={() => setIsMenuOpen(false)}>
-            <img src="/close.svg" alt="close menu"></img>
-          </div>
+          <IconClose setIsMenuOpen={setIsMenuOpen} />
         </ModalMenu>
       )}
     </>
@@ -29,18 +27,6 @@ function MenuButton({ setIsMenuOpen }) {
     </div>
   );
 }
-
-// CloseModalMenu.propTypes = {
-//   setIsMenuOpen: PropTypes.func,
-// };
-
-// function CloseModalMenu({ setIsMenuOpen }) {
-//   return (
-//     <div className="btn-close-menu" onClick={() => setIsMenuOpen(false)}>
-//       <img src="/close.svg" alt="close menu"></img>
-//     </div>
-//   );
-// }
 
 ModalMenu.propTypes = {
   children: PropTypes.element,
