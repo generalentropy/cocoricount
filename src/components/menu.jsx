@@ -8,7 +8,10 @@ export default function Menu() {
       <MenuButton setIsMenuOpen={setIsMenuOpen} />
       {isMenuOpen && (
         <ModalMenu isMenuOpen={isMenuOpen}>
-          <CloseModalMenu setIsMenuOpen={setIsMenuOpen} />
+          {/* <CloseModalMenu setIsMenuOpen={setIsMenuOpen} /> */}
+          <div className="btn-close-menu" onClick={() => setIsMenuOpen(false)}>
+            <img src="/close.svg" alt="close menu"></img>
+          </div>
         </ModalMenu>
       )}
     </>
@@ -22,22 +25,22 @@ MenuButton.propTypes = {
 function MenuButton({ setIsMenuOpen }) {
   return (
     <div className="btn-menu" onClick={() => setIsMenuOpen(true)}>
-      <img src="/menu-kebab.svg"></img>
+      <img src="/menu-kebab.svg" alt="open menu"></img>
     </div>
   );
 }
 
-CloseModalMenu.propTypes = {
-  setIsMenuOpen: PropTypes.func,
-};
+// CloseModalMenu.propTypes = {
+//   setIsMenuOpen: PropTypes.func,
+// };
 
-function CloseModalMenu({ setIsMenuOpen }) {
-  return (
-    <div className="btn-close-menu" onClick={() => setIsMenuOpen(false)}>
-      <img src="/close.svg"></img>
-    </div>
-  );
-}
+// function CloseModalMenu({ setIsMenuOpen }) {
+//   return (
+//     <div className="btn-close-menu" onClick={() => setIsMenuOpen(false)}>
+//       <img src="/close.svg" alt="close menu"></img>
+//     </div>
+//   );
+// }
 
 ModalMenu.propTypes = {
   children: PropTypes.element,
