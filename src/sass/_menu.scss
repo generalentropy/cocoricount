@@ -34,7 +34,8 @@
 }
 
 .menu-container {
-  @include m.flex-center;
-  @include m.b;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
   padding: 100px;
 }

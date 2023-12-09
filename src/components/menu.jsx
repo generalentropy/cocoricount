@@ -1,14 +1,27 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import CloseMenu from "./Close-menu";
+import Button from "./Button";
+import exportUserData from "../exportData";
 
-export default function Menu() {
+Menu.propTypes = {
+  setData: PropTypes.func,
+  setCount: PropTypes.func,
+};
+
+export default function Menu({ setData, setCount }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  exportUserData();
   return (
     <>
       <MenuButton setIsMenuOpen={setIsMenuOpen} />
       {isMenuOpen && (
-        <ModalMenu isMenuOpen={isMenuOpen}>
+        <ModalMenu
+          setData={setData}
+          setCount={setCount}
+          isMenuOpen={isMenuOpen}
+        >
           <CloseMenu setIsMenuOpen={setIsMenuOpen} />
         </ModalMenu>
       )}
@@ -30,13 +43,48 @@ function MenuButton({ setIsMenuOpen }) {
 
 ModalMenu.propTypes = {
   children: PropTypes.element,
+  setData: PropTypes.func,
+  setCount: PropTypes.func,
 };
 
-function ModalMenu({ children }) {
+function ModalMenu({ children, setData, setCount }) {
+  const resetAlluserData = function () {
+    const uservalidation = window.confirm(
+      "Vous allez supprimer toutes les statistiques, ces données ne pourront pas etre récupérées, êtes-vous sur de vouloir continuer ?"
+    );
+
+    if (uservalidation) {
+      setData(() => []);
+      setCount(() => 0);
+    }
+  };
+
   return (
     <div className="menu">
       {children}
-      <div className="menu-container">Je suis une modale</div>
+      <div className="menu-container">
+        <Button
+          customStyle={{ color: "#fb8500" }}
+          className="btn-overlay-menu"
+          label="Afficher l'historique"
+        />
+        <Button
+          customStyle={{ color: "#fb8500" }}
+          className="btn-overlay-menu"
+          label="Exporter les données en XLS (bientôt)"
+        />
+        <Button
+          customStyle={{ color: "#fb8500" }}
+          className="btn-overlay-menu"
+          label="Proposer une améliorations"
+        />
+        <Button
+          customStyle={{ color: "#fff", backgroundColor: "red" }}
+          className="btn-overlay-menu"
+          label="Réinitialiser les statistiques"
+          onClick={resetAlluserData}
+        ></Button>
+      </div>
     </div>
   );
 }

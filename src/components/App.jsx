@@ -16,7 +16,7 @@ export default function App() {
 
   return (
     <>
-      <Menu />
+      <Menu setData={setData} setCount={setCount} />
       <div className="app">
         <ConfettiComponent
           fireConfetti={fireConfetti}
