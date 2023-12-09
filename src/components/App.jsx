@@ -6,7 +6,8 @@ import Stats from "./Stats";
 import ConfettiComponent from "./Confetti";
 import Counter from "./Counter";
 import userData from "../data";
-import Menu from "./menu";
+import Menu from "./Menu";
+import CookieConsent from "react-cookie-consent";
 
 export default function App() {
   const [data, setData] = useState(() => {
@@ -23,6 +24,22 @@ export default function App() {
 
   return (
     <>
+      <CookieConsent
+        location="bottom"
+        buttonText="Compris!"
+        cookieName="cocoricount2"
+        style={{ background: "#023047" }}
+        buttonStyle={{
+          color: "#fff",
+          fontSize: "16px",
+          background: "#ffb703",
+          padding: "10px 20px",
+        }}
+        expires={150}
+      >
+        {`Cette application utilise des cookies (et des œufs) afin d'améliorer
+        l'expérience utilisateur.`}
+      </CookieConsent>
       <Menu setData={setData} setCount={setCount} data={data} />
       <div className="app">
         <ConfettiComponent

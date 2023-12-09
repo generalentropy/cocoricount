@@ -7,7 +7,7 @@
 }
 
 @mixin b {
-  border: 1px solid #222222;
+  border: 1px solid #0bf517;
 }
 
 @mixin noselect {
@@ -15,4 +15,12 @@
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+@mixin theme-color($light, $dark) {
+  color: var(--color, #{$light});
+
+  .dark-theme & {
+    --color: #{$dark};
+  }
 }

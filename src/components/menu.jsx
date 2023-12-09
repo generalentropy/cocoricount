@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import CloseMenu from "./Close-menu";
+import CloseMenu from "./CloseMenu";
 import Button from "./Button";
 import exportUserData from "../exportData";
 
@@ -52,7 +52,7 @@ ModalMenu.propTypes = {
 function ModalMenu({ children, setData, setCount, data }) {
   const resetAlluserData = function () {
     const uservalidation = window.confirm(
-      "Vous allez supprimer toutes les statistiques, ces données ne pourront pas etre récupérées, êtes-vous sûr de vouloir continuer ?"
+      "Vous allez supprimer toutes les statistiques, ces données ne pourront pas etre récupérées. Êtes-vous sûr de vouloir continuer ?"
     );
 
     if (uservalidation) {
@@ -78,7 +78,7 @@ function ModalMenu({ children, setData, setCount, data }) {
         <Button
           customStyle={{ color: "#fb8500", ...custom }}
           className="btn-overlay-menu"
-          label="Exporter les données en XLS"
+          label="Exporter les données (.xlsx)"
           onClick={() => exportUserData(data)}
         />
         <Button

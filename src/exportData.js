@@ -1,4 +1,10 @@
 async function exportUserData(userData) {
+  const userConfirm = window.confirm(
+    `En cliquant sur OK, le fichier (format Excel) sera sauvegardé sur votre appareil.`
+  );
+
+  if (!userConfirm) return;
+
   const ExcelJS = await import("exceljs");
 
   const workbook = new ExcelJS.Workbook();
@@ -42,8 +48,6 @@ async function exportUserData(userData) {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
-
-  console.log("hello");
 }
 
 export default exportUserData;
