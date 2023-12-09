@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { ReactComponentElement as Logo } from "/logo.svg";
+import CloseIcon from "/close.svg";
 
 IconClose.propTypes = {
   setIsMenuOpen: PropTypes.func,
@@ -8,7 +8,7 @@ IconClose.propTypes = {
 export default function IconClose({ setIsMenuOpen }) {
   return (
     <div className="btn-close-menu" onClick={() => setIsMenuOpen(false)}>
-      <Logo />
+      <img src={CloseIcon} alt="icon" />
     </div>
   );
 }
