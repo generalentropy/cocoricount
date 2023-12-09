@@ -7,7 +7,6 @@ import ConfettiComponent from "./Confetti";
 import Counter from "./Counter";
 import Menu from "./Menu";
 import userData from "../data";
-
 import CookieConsent from "react-cookie-consent";
 
 export default function App() {
