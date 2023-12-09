@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import CloseButton from "./close";
+import CloseMenu from "./Close-menu";
 
 export default function Menu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,7 +9,7 @@ export default function Menu() {
       <MenuButton setIsMenuOpen={setIsMenuOpen} />
       {isMenuOpen && (
         <ModalMenu isMenuOpen={isMenuOpen}>
-          <CloseButton setIsMenuOpen={setIsMenuOpen} />
+          <CloseMenu setIsMenuOpen={setIsMenuOpen} />
         </ModalMenu>
       )}
     </>
