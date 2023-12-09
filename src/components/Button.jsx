@@ -10,6 +10,7 @@ export default function Button({
   className = "buttons-control",
 }) {
   const baseStyle = {
+    maxWidth: "800px",
     backgroundColor: "#fff",
     border: "none",
     color: "#ffb703",

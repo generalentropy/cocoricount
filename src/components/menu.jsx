@@ -50,7 +50,7 @@ ModalMenu.propTypes = {
 function ModalMenu({ children, setData, setCount }) {
   const resetAlluserData = function () {
     const uservalidation = window.confirm(
-      "Vous allez supprimer toutes les statistiques, ces données ne pourront pas etre récupérées, êtes-vous sur de vouloir continuer ?"
+      "Vous allez supprimer toutes les statistiques, ces données ne pourront pas etre récupérées, êtes-vous sûr de vouloir continuer ?"
     );
 
     if (uservalidation) {
@@ -59,27 +59,33 @@ function ModalMenu({ children, setData, setCount }) {
     }
   };
 
+  const custom = {
+    padding: "12px 25px",
+  };
+
+  // width des boutons = largeur du plus grand bouton
+
   return (
     <div className="menu">
       {children}
       <div className="menu-container">
         <Button
-          customStyle={{ color: "#fb8500" }}
+          customStyle={{ color: "#fb8500", ...custom }}
           className="btn-overlay-menu"
           label="Afficher l'historique"
         />
         <Button
-          customStyle={{ color: "#fb8500" }}
+          customStyle={{ color: "#fb8500", ...custom }}
           className="btn-overlay-menu"
-          label="Exporter les données en XLS (bientôt)"
+          label="Exporter les données en XLS"
         />
         <Button
-          customStyle={{ color: "#fb8500" }}
+          customStyle={{ color: "#fb8500", ...custom }}
           className="btn-overlay-menu"
           label="Proposer une améliorations"
         />
         <Button
-          customStyle={{ color: "#fff", backgroundColor: "red" }}
+          customStyle={{ color: "#fff", backgroundColor: "red", ...custom }}
           className="btn-overlay-menu"
           label="Réinitialiser les statistiques"
           onClick={resetAlluserData}
