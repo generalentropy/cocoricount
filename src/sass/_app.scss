@@ -3,13 +3,16 @@
 
 // font-weight 100/300/400/500/700/900
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .app {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
   height: 100dvh;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .counter-wrapper {
