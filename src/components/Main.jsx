@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import Button from "./Button";
-import { useEffect } from "react";
 
 Main.propTypes = {
   count: PropTypes.number.isRequired,
@@ -50,10 +49,6 @@ export default function Main({
       },
     ]);
   }
-
-  useEffect(() => {
-    console.log(`total of the day : ${count}`);
-  }, [count]);
 
   return (
     <div className="counter-wrapper">

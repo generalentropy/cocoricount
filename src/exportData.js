@@ -1,6 +1,6 @@
-import ExcelJS from "exceljs";
+async function exportUserData(userData) {
+  const ExcelJS = await import("exceljs");
 
-export default function exportUserData() {
   const workbook = new ExcelJS.Workbook();
   workbook.creator = "CocoriCount";
   workbook.created = new Date();
@@ -9,25 +9,41 @@ export default function exportUserData() {
 
   worksheet.columns = [
     { header: "Date", key: "date", width: 15 },
-    { header: "Count", key: "count", width: 10 },
+    { header: "Récolte", key: "count", width: 20 },
   ];
 
-  const data = [
-    {
-      date: "2023-12-09",
-      count: 10,
-    },
-    {
-      date: "2023-12-09",
-      count: 10,
-    },
-    {
-      date: "2023-12-09",
-      count: 10,
-    },
-  ];
+  const convertedUserData = userData.map((el) => {
+    const date = new Date(el.date);
+    const formattedDate = date.toLocaleDateString();
+    return { date: formattedDate, count: el.count };
+  });
 
-  data.forEach((item) => {
+  console.log(convertedUserData);
+
+  convertedUserData.forEach((item) => {
     worksheet.addRow(item);
   });
+
+  const buffer = await workbook.xlsx.writeBuffer();
+  const blob = new Blob([buffer], {
+    type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  });
+
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+
+  console.log(year, month, day);
+
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = `CocoriCountStats_${day}_${month}_${year}.xlsx`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+  console.log("hello");
 }
+
+export default exportUserData;

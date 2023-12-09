@@ -1,10 +1,10 @@
 @use "the-new-css-reset/css/reset.css";
 @use "_base.scss";
-@use "_mobile.scss";
 @use "_app.scss";
 @use "_header.scss";
 @use "_stats.scss";
 @use "_menu.scss";
+@use "_mobile.scss";
 
 // 100/300/400/500/700/900
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");

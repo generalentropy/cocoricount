@@ -1,2 +1,67 @@
 @use "_colors" as c;
 @use "_mixins" as m;
+
+@media screen and (max-width: 340px) {
+  .buttons-wrapper {
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .stats-title {
+    text-align: center;
+    font-size: 2em;
+    font-weight: 300;
+    letter-spacing: 2px;
+  }
+
+  .stats {
+    max-width: 800px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 88px;
+  }
+
+  .stat-label {
+    font-weight: 300;
+    font-size: 1em;
+  }
+
+  .stat-number {
+    font-weight: 700;
+    font-size: 1.7em;
+    letter-spacing: 1px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .stats-title {
+    font-size: 1.8em;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 70px;
+  }
+
+  .stat-label {
+    font-weight: 300;
+    font-size: 1em;
+  }
+
+  .stat-number {
+    font-weight: 700;
+    font-size: 1.7em;
+    letter-spacing: 1px;
+  }
+}

@@ -7,12 +7,12 @@ import exportUserData from "../exportData";
 Menu.propTypes = {
   setData: PropTypes.func,
   setCount: PropTypes.func,
+  data: PropTypes.array,
 };
 
-export default function Menu({ setData, setCount }) {
+export default function Menu({ setData, setCount, data }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  exportUserData();
   return (
     <>
       <MenuButton setIsMenuOpen={setIsMenuOpen} />
@@ -21,6 +21,7 @@ export default function Menu({ setData, setCount }) {
           setData={setData}
           setCount={setCount}
           isMenuOpen={isMenuOpen}
+          data={data}
         >
           <CloseMenu setIsMenuOpen={setIsMenuOpen} />
         </ModalMenu>
@@ -45,9 +46,10 @@ ModalMenu.propTypes = {
   children: PropTypes.element,
   setData: PropTypes.func,
   setCount: PropTypes.func,
+  data: PropTypes.array,
 };
 
-function ModalMenu({ children, setData, setCount }) {
+function ModalMenu({ children, setData, setCount, data }) {
   const resetAlluserData = function () {
     const uservalidation = window.confirm(
       "Vous allez supprimer toutes les statistiques, ces données ne pourront pas etre récupérées, êtes-vous sûr de vouloir continuer ?"
@@ -64,7 +66,6 @@ function ModalMenu({ children, setData, setCount }) {
   };
 
   // width des boutons = largeur du plus grand bouton
-
   return (
     <div className="menu">
       {children}
@@ -78,6 +79,7 @@ function ModalMenu({ children, setData, setCount }) {
           customStyle={{ color: "#fb8500", ...custom }}
           className="btn-overlay-menu"
           label="Exporter les données en XLS"
+          onClick={() => exportUserData(data)}
         />
         <Button
           customStyle={{ color: "#fb8500", ...custom }}

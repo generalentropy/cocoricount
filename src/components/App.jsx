@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./Header";
 import Logo from "./Logo";
 import Main from "./Main";
@@ -9,14 +9,21 @@ import userData from "../data";
 import Menu from "./menu";
 
 export default function App() {
-  const [data, setData] = useState(userData);
+  const [data, setData] = useState(() => {
+    const savedUserData = localStorage.getItem("userData");
+    return savedUserData ? JSON.parse(savedUserData) : userData;
+  });
   const [fireConfetti, setFireConfetti] = useState(false);
   const [count, setCount] = useState(0);
   const [editMode, setEditMode] = useState(true);
 
+  useEffect(() => {
+    localStorage.setItem("userData", JSON.stringify(data));
+  }, [data]);
+
   return (
     <>
-      <Menu setData={setData} setCount={setCount} />
+      <Menu setData={setData} setCount={setCount} data={data} />
       <div className="app">
         <ConfettiComponent
           fireConfetti={fireConfetti}
