@@ -52,7 +52,7 @@ ModalMenu.propTypes = {
 function ModalMenu({ children, setData, setCount, data }) {
   const resetAlluserData = function () {
     const uservalidation = window.confirm(
-      "Vous allez supprimer toutes les statistiques, ces données ne pourront pas être récupérées. Êtes-vous sûr de vouloir continuer ?"
+      "Vous allez supprimer toutes les statistiques, ces données ne pourront pas être récupérées. Souhaitez-vous continuer ?"
     );
 
     if (uservalidation) {

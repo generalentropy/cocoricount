@@ -47,7 +47,7 @@ export default function App() {
         }}
         expires={150}
         enableDeclineButton
-        declineButtonText="Je refuse :("
+        declineButtonText="Je refuse"
         declineButtonStyle={{
           color: "#fff",
           fontSize: "16px",
@@ -55,7 +55,7 @@ export default function App() {
           padding: "10px 20px",
         }}
       >
-        {`Cette application souhaite utiliser des cookies (et des œufs) afin d'améliorer
+        {`Cette application souhaite utiliser des cookies (aux œufs frais) afin d'améliorer
         votre expérience utilisateur.`}
       </CookieConsent>
       <Menu setData={setData} setCount={setCount} data={data} />
