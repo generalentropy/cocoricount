@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import CloseMenu from "./CloseMenu";
 import Button from "./Button";
 import exportUserData from "../exportData";
-import FooterMenu from "./footer";
 
 Menu.propTypes = {
   setData: PropTypes.func,

@@ -6,8 +6,8 @@ import Stats from "./Stats";
 import ConfettiComponent from "./Confetti";
 import Counter from "./Counter";
 import userData from "../data";
-import CookieConsent from "react-cookie-consent";
 import Menu from "./Menu";
+import CookieConsent from "react-cookie-consent";
 
 export default function App() {
   const [data, setData] = useState(() => {
