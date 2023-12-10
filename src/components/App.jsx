@@ -18,6 +18,14 @@ export default function App() {
   const [count, setCount] = useState(0);
   const [editMode, setEditMode] = useState(true);
 
+  const handleConsent = function () {
+    console.log("cookie acceptés");
+  };
+
+  const handleDecline = function () {
+    console.log("cookies refusés");
+  };
+
   useEffect(() => {
     localStorage.setItem("userData", JSON.stringify(data));
   }, [data]);
@@ -25,6 +33,8 @@ export default function App() {
   return (
     <>
       <CookieConsent
+        onAccept={handleConsent}
+        onDecline={handleDecline}
         location="bottom"
         buttonText="Compris!"
         cookieName="cocoricount2"
@@ -32,13 +42,21 @@ export default function App() {
         buttonStyle={{
           color: "#fff",
           fontSize: "16px",
-          background: "#ffb703",
+          background: "green",
           padding: "10px 20px",
         }}
         expires={150}
+        enableDeclineButton
+        declineButtonText="Je refuse :("
+        declineButtonStyle={{
+          color: "#fff",
+          fontSize: "16px",
+          background: "red",
+          padding: "10px 20px",
+        }}
       >
-        {`Cette application utilise des cookies (et des œufs) afin d'améliorer
-        l'expérience utilisateur.`}
+        {`Cette application souhaite utiliser des cookies (et des œufs) afin d'améliorer
+        votre expérience utilisateur.`}
       </CookieConsent>
       <Menu setData={setData} setCount={setCount} data={data} />
       <div className="app">
