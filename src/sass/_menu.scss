@@ -3,17 +3,16 @@
 
 .menu {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   z-index: 100;
-
   position: absolute;
-  height: 100vh;
-  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
   width: 100vw;
   width: 100dvw;
   background-color: c.$main;
-  @include m.noselect;
 }
 
 .btn-menu {
@@ -36,6 +35,28 @@
 .menu-container {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  justify-content: center; /* Centre son contenu */
   gap: 2em;
   padding: 0 20px;
+  width: 300px;
+}
+
+.btn-overlay-menu {
+  width: 100%;
+}
+
+.footer {
+  justify-self: self-end;
+  text-align: center;
+  margin-top: auto;
+  padding: 10px;
+}
+
+.strong {
+  font-weight: 900;
+}
+
+.underline {
+  text-decoration: underline;
 }

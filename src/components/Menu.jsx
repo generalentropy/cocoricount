@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import CloseMenu from "./CloseMenu";
 import Button from "./Button";
 import exportUserData from "../exportData";
+import FooterMenu from "./footer";
 
 Menu.propTypes = {
   setData: PropTypes.func,
@@ -52,7 +53,7 @@ ModalMenu.propTypes = {
 function ModalMenu({ children, setData, setCount, data }) {
   const resetAlluserData = function () {
     const uservalidation = window.confirm(
-      "Vous allez supprimer toutes les statistiques, ces données ne pourront pas être récupérées. Souhaitez-vous continuer ?"
+      "Vous allez supprimer toutes les statistiques, ces données ne pourront pas être récupérées. n continuer ?"
     );
 
     if (uservalidation) {
@@ -69,6 +70,7 @@ function ModalMenu({ children, setData, setCount, data }) {
   return (
     <div className="menu">
       {children}
+
       <div className="menu-container">
         <Button
           customStyle={{ color: "#fb8500", ...custom }}
@@ -81,6 +83,21 @@ function ModalMenu({ children, setData, setCount, data }) {
           label="Exporter les données (.xlsx)"
           onClick={() => exportUserData(data)}
         />
+
+        <Button
+          customStyle={{ color: "#fb8500", ...custom }}
+          className="btn-overlay-menu"
+          label="F.A.Q"
+        />
+
+        <a href="https://www.buymeacoffee.com/visualartisan">
+          <Button
+            customStyle={{ color: "#fb8500", ...custom }}
+            className="btn-overlay-menu"
+            label="Soutenir le projet"
+          />
+        </a>
+
         <Button
           customStyle={{ color: "#fb8500", ...custom }}
           className="btn-overlay-menu"
@@ -93,6 +110,7 @@ function ModalMenu({ children, setData, setCount, data }) {
           onClick={resetAlluserData}
         ></Button>
       </div>
+      <FooterMenu />
     </div>
   );
 }
